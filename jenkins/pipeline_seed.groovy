@@ -9,7 +9,8 @@ pipeline {
         stages {
             stage ("git code checkout")
             {
-            steps{
+            steps
+            {
                 echo "get source code"
                 git changelog: false, credentialsId: 'git_creds', poll: false, url: 'https://github.com/jinjadarkwebjinja/petclinic2.git'
                 emailext body: 'PFA', recipientProviders: [buildUser()], subject: 'Hi There !', to: 'jinjajenkinsuser@gmail.com'
@@ -18,7 +19,8 @@ pipeline {
         }
              stage ("Build")
              {
-            steps{
+            steps
+            {
                 echo "Build the app"
                 sh 'mvn package'
                 emailext body: 'PFA', recipientProviders: [buildUser()], subject: 'Hi There !', to: 'jinjajenkinsuser@gmail.com'
