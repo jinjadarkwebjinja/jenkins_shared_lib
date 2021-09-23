@@ -7,7 +7,8 @@ pipeline {
         maven "maven"
     }
         stages {
-            stage ("git code checkout"){
+            stage ("git code checkout")
+            {
             steps{
                 echo "get source code"
                 git changelog: false, credentialsId: 'git_creds', poll: false, url: 'https://github.com/jinjadarkwebjinja/petclinic2.git'
@@ -15,7 +16,8 @@ pipeline {
                 echo 'scm is done guys!'
             }
         }
-             stage ("Build"){
+             stage ("Build")
+             {
             steps{
                 echo "Build the app"
                 sh 'mvn package'
