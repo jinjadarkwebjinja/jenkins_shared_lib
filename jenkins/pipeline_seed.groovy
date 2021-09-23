@@ -17,14 +17,6 @@ pipeline {
                 echo 'scm is done guys!'
             }
         }
-             stage ("Build")
-             {
-            steps
-            {
-                echo "Build the app"
-                sh 'mvn package'
-                emailext body: 'PFA', recipientProviders: [buildUser()], subject: 'Hi There !', to: 'jinjajenkinsuser@gmail.com'
-                echo 'Build is done guys!'
             }
         }
         }
